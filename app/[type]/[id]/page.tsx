@@ -8,7 +8,7 @@ import {
   getImagesCatsBreeds,
 } from "../../../utils/api";
 
-import Breed from "../../../types/Breed"
+import BreedInterface from "../../../types/Breed"
 import { BREED_TYPE } from "../../../constants/constants";
 import Loading from "@/app/components/Loading";
 
@@ -18,7 +18,7 @@ const BreedPage = ({
   params: { type: BREED_TYPE.DOG | BREED_TYPE.CAT; id: string };
 }) => {
   const { id, type } = params;
-  const [breed, setBreed] = useState<Breed | null>(null);
+  const [breed, setBreed] = useState<BreedInterface | null>(null);
   const [images, setImages] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -28,7 +28,7 @@ const BreedPage = ({
     try {
       const breeds = isDogType ? await getDogBreeds() : await getCatBreeds();
       const foundBreed = breeds.find(
-        (breed: Breed) => String(breed.id) === String(id)
+        (breed: BreedInterface) => String(breed.id) === String(id)
       );
 
       if (!foundBreed) {
@@ -71,7 +71,7 @@ const BreedPage = ({
       <div className="flex flex-col">
         <div className="w-full h-52 flex justify-center md:justify-start overflow-hidden mb-6">
           <img
-            src={breed?.image?.url || `/default-${type}.jpg`}
+            src={breed?.image?.url}
             alt={breed?.name}
             className=" h-full w-auto object-contain rounded-lg"
           />

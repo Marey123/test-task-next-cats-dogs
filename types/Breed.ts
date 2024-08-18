@@ -1,4 +1,4 @@
-export default interface Breed {
+export default interface BreedInterface {
     id: string;
     name: string;
     image: {

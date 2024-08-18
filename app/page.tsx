@@ -5,7 +5,7 @@ import { getDogBreeds, getCatBreeds } from "../utils/api";
 import BreedCard from "./components/Card";
 import Search from "./components/Search";
 import { BREED_TYPE } from "../constants/constants";
-import Breed from "../types/Breed";
+import BreedInterface from "../types/Breed";
 import BreedCardInterface from "../types/BreedCard";
 
 const Home:FC = () => {
@@ -20,13 +20,13 @@ const Home:FC = () => {
         const dogBreeds = await getDogBreeds();
         const catBreeds = await getCatBreeds();
 
-        const dogBreedsWithType = dogBreeds.map((breed: Breed) => ({
+        const dogBreedsWithType = dogBreeds.map((breed: BreedInterface) => ({
           ...breed,
           type: BREED_TYPE.DOG,
           emoji: "🐶"
         }));
 
-        const catBreedsWithType = catBreeds.map((breed: Breed) => ({
+        const catBreedsWithType = catBreeds.map((breed: BreedInterface) => ({
           ...breed,
           type: BREED_TYPE.CAT,
           emoji: "🐱"
