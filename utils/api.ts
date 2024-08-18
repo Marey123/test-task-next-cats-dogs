@@ -1,10 +1,10 @@
-import { BASE_CAT_API_URL, BASE_DOG_API_URL } from "../constants/constants";
+import { BASE_CAT_API_URL, BASE_DOG_API_URL, DOG_API_KEY, CAT_API_KEY } from "../constants/constants";
 
 const requestOptionsDogs = {
     method: 'GET',
     headers: new Headers({
         "Content-Type": "application/json",
-        "x-api-key": "live_YQ1roBOCWb9OOq3FXm845RY1BXNZRh6l3F2TuooqksdZe9K73E6gslYJISnM9ulE",
+        "x-api-key": DOG_API_KEY,
     }),
     redirect: 'follow' as RequestRedirect,
 };
@@ -13,7 +13,7 @@ const requestOptionsCats = {
     method: 'GET',
     headers: new Headers({
         "Content-Type": "application/json",
-        "x-api-key": "live_igsS0uER9ZOVL35hpYDlp7gU9101VTP3MiO481kqzMNKWUeoFoXsS9Pn1GMmNnvn",
+        "x-api-key": CAT_API_KEY,
     }),
     redirect: 'follow' as RequestRedirect,
 };
